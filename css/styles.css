@@ -147,3 +147,19 @@ body {
     color: #fff;
 }
 
+/* RESPONSIVE */
+@media(max-width: 450px) {
+
+    #quiz-container {
+        border: none;
+        width: 100%;
+    }
+
+    #answers-box button {
+        width: 100%;
+    }
+
+    #score-container {
+        width: 90%;
+    }
+}
