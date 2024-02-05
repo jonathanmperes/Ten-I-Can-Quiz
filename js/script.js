@@ -50,3 +50,24 @@ const questions = [
         ],
     }
 ]
+
+function init() {
+    createQuestion(0);
+}
+
+function createQuestion(i) {
+
+    const oldButtons = answersBox.querySelectorAll("button");
+
+    oldButtons.forEach(function(btn) {
+        btn.remove();
+    })
+
+    const questionText = question.querySelector("#question-text");
+    const questionNumber = question.querySelector("#question-number");
+
+    questionText.textContent = questions[i].question;
+    questionNumber.textContent = i + 1;
+}
+
+init();
