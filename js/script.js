@@ -9,7 +9,7 @@ let point = 0;
 const questions = [
     {
         "question": "What _____ you do last night?",
-        "answer": [
+        "answers": [
             {
                 "answer": "did",
                 "correct": true
@@ -30,7 +30,7 @@ const questions = [
     },
     {
         "question": "What _____ you do tomorrow?",
-        "answer": [
+        "answers": [
             {
                 "answer": "did",
                 "correct": false
@@ -68,6 +68,30 @@ function createQuestion(i) {
 
     questionText.textContent = questions[i].question;
     questionNumber.textContent = i + 1;
+
+    questions[i].answers.forEach(function(answer, i) {
+
+        const answerTemplate = document.querySelector(".answer-template").cloneNode(true);
+
+        const letterBtn = answerTemplate.querySelector(".btn-letter");
+        const answerText = answerTemplate.querySelector(".question-answer");
+
+        letterBtn.textContent = letters[i];
+        answerText.textContent = answer['answer'];
+
+        answerTemplate.setAttribute("correct-answer", answer["correct"]);
+
+        answerTemplate.classList.remove("hide");
+        answerTemplate.classList.remove("answer-template");
+
+        answersBox.appendChild(answerTemplate);
+
+        answerTemplate.addEventListener("click", function() {
+            console.log(this);
+        });
+    });
+
+    actualQuestion++;
 }
 
 init();
