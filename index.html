@@ -8,6 +8,29 @@
     <script src="js/script.js" defer></script>
 </head>
 <body>
+    <h1 id="main-title">Ten I Can - Quiz</h1>
     
+    <!-- SCORE BOARD -->
+    <div id="score-container" class="hide">
+        <h2>Congrats!</h2>
+        <p id="display-score"><span>90</span>%</p>
+        <p>You scored <span id="correct-answers">0</span> out of <span id="questions-qty">10</span> question</p>
+        <button id="restart"> Restart the Quiz</button>
+    </div>
+
+    <!-- QUIZ CONTAINER -->
+    <div id="quiz-container">
+        <p id="question"><span id="question-number">1</span> - <span id="question-text">What's up?</span>
+        </p>
+        <div id="answers-box">
+            <button><span class="btn-letter">a</span> <span class="question-answer">not much</span></button>
+            <button><span class="btn-letter">b</span> <span class="question-answer">today</span></button>
+            <button><span class="btn-letter">c</span> <span class="question-answer">hi</span></button>
+            <button><span class="btn-letter">d</span> <span class="question-answer">bye</span></button>
+        </div>
+    </div>
+
+    <!-- ANSWER TEMPLATE -->
+    <button class="answer-template hide"><span class="btn-letter">a</span> <span class="question-answer">not much</span></button>
 </body>
 </html>
