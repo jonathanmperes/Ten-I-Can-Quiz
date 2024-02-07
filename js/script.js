@@ -4,7 +4,7 @@ const quizContainer = document.querySelector("#quiz-container");
 const scoreContainer = document.querySelector("#score-container");
 const letters = ["a", "b", "c", "d"];
 let actualQuestion = 0;
-let point = 0;
+let points = 0;
 
 const questions = [
     {
@@ -87,11 +87,33 @@ function createQuestion(i) {
         answersBox.appendChild(answerTemplate);
 
         answerTemplate.addEventListener("click", function() {
-            console.log(this);
+            checkAnswer(this);
         });
     });
 
     actualQuestion++;
+}
+
+function checkAnswer(btn) {
+
+    const buttons = answersBox.querySelectorAll("button");
+
+    buttons.forEach(function(button) {
+        if(button.getAttribute("correct-answer") === "true") {
+
+            button.classList.add("correct-answer");
+
+            if(btn === button) {
+
+                points++;
+            }
+        } else {
+
+            button.classList.add("wrong-answer");
+        }
+    });
+
+    
 }
 
 init();
