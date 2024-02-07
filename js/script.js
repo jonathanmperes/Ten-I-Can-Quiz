@@ -61,7 +61,7 @@ function createQuestion(i) {
 
     oldButtons.forEach(function(btn) {
         btn.remove();
-    })
+    });
 
     const questionText = question.querySelector("#question-text");
     const questionNumber = question.querySelector("#question-number");
@@ -149,4 +149,13 @@ function hideOrShowQuiz() {
     scoreContainer.classList.toggle("hide");
 }
 
+const restartBtn = document.querySelector("#restart");
+
+restartBtn.addEventListener("click", function() {
+    actualQuestion = 0;
+    points = 0;
+    hideOrShowQuiz();
+    init();
+})
+ 
 init();
