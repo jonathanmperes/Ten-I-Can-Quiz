@@ -113,7 +113,18 @@ function checkAnswer(btn) {
         }
     });
 
-    
+    nextQuestion();
+}
+
+function nextQuestion() {
+
+    setTimeout(function() {
+
+        if(actualQuestion >= questions.length) {
+
+        }
+        createQuestion(actualQuestion);
+    }, 2000);
 }
 
 init();
