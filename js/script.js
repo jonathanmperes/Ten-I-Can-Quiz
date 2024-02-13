@@ -57,14 +57,8 @@ function init() {
 }
 
 function createQuestion(i) {
-
     removeOldButtons();
-
-    const questionText = question.querySelector("#question-text");
-    const questionNumber = question.querySelector("#question-number");
-
-    questionText.textContent = questions[i].question;
-    questionNumber.textContent = i + 1;
+    updateQuestionTextAndNumber(i);
 
     questions[i].answers.forEach(function(answer, i) {
 
@@ -99,8 +93,15 @@ function removeOldButtons() {
     });
 }
 
-function checkAnswer(btn) {
+function updateQuestionTextAndNumber(i) {
+    const questionText = question.querySelector("#question-text");
+    const questionNumber = question.querySelector("#question-number");
 
+    questionText.textContent = questions[i].question;
+    questionNumber.textContent = i + 1;
+}
+
+function checkAnswer(btn) {
     const buttons = answersBox.querySelectorAll("button");
 
     buttons.forEach(function(button) {
