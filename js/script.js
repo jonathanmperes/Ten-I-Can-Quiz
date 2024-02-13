@@ -3,6 +3,7 @@ const answersBox = document.querySelector("#answers-box");
 const quizContainer = document.querySelector("#quiz-container");
 const scoreContainer = document.querySelector("#score-container");
 const letters = ["a", "b", "c", "d"];
+
 let actualQuestion = 0;
 let points = 0;
 
@@ -52,16 +53,12 @@ const questions = [
 ]
 
 function init() {
-    createQuestion(0);
+    createQuestion(actualQuestion);
 }
 
 function createQuestion(i) {
 
-    const oldButtons = answersBox.querySelectorAll("button");
-
-    oldButtons.forEach(function(btn) {
-        btn.remove();
-    });
+    removeOldButtons();
 
     const questionText = question.querySelector("#question-text");
     const questionNumber = question.querySelector("#question-number");
@@ -92,6 +89,14 @@ function createQuestion(i) {
     });
 
     actualQuestion++;
+}
+
+function removeOldButtons() {
+    const oldButtons = answersBox.querySelectorAll("button");
+
+    oldButtons.forEach(function(btn) {
+        btn.remove();
+    });
 }
 
 function checkAnswer(btn) {
