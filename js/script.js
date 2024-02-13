@@ -59,9 +59,28 @@ function init() {
 function createQuestion(i) {
     removeOldButtons();
     updateQuestionTextAndNumber(i);
+    showAnswerTemplate(i);
+    actualQuestion++;
+}
 
+function removeOldButtons() {
+    const oldButtons = answersBox.querySelectorAll("button");
+
+    oldButtons.forEach(function(btn) {
+        btn.remove();
+    });
+}
+
+function updateQuestionTextAndNumber(i) {
+    const questionText = question.querySelector("#question-text");
+    const questionNumber = question.querySelector("#question-number");
+
+    questionText.textContent = questions[i].question;
+    questionNumber.textContent = i + 1;
+}
+
+function showAnswerTemplate(i) {
     questions[i].answers.forEach(function(answer, i) {
-
         const answerTemplate = document.querySelector(".answer-template").cloneNode(true);
 
         const letterBtn = answerTemplate.querySelector(".btn-letter");
@@ -81,24 +100,6 @@ function createQuestion(i) {
             checkAnswer(this);
         });
     });
-
-    actualQuestion++;
-}
-
-function removeOldButtons() {
-    const oldButtons = answersBox.querySelectorAll("button");
-
-    oldButtons.forEach(function(btn) {
-        btn.remove();
-    });
-}
-
-function updateQuestionTextAndNumber(i) {
-    const questionText = question.querySelector("#question-text");
-    const questionNumber = question.querySelector("#question-number");
-
-    questionText.textContent = questions[i].question;
-    questionNumber.textContent = i + 1;
 }
 
 function checkAnswer(btn) {
