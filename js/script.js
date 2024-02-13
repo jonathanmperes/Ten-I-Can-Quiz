@@ -104,29 +104,21 @@ function showAnswerTemplate(i) {
 
 function checkAnswer(btn) {
     const buttons = answersBox.querySelectorAll("button");
-
     buttons.forEach(function(button) {
         if(button.getAttribute("correct-answer") === "true") {
-
             button.classList.add("correct-answer");
-
             if(btn === button) {
-
                 points++;
             }
         } else {
-
             button.classList.add("wrong-answer");
         }
     });
-
     nextQuestion();
 }
 
 function nextQuestion() {
-
     setTimeout(function() {
-
         if(actualQuestion >= questions.length) {
             showSuccessMessage();
             return;
@@ -136,9 +128,7 @@ function nextQuestion() {
 }
 
 function showSuccessMessage() {
-
     hideOrShowQuiz();
-
     const score = ((points / questions.length) * 100).toFixed(2);
 
     const displayScore = document.querySelector("#display-score span");
@@ -157,7 +147,6 @@ function hideOrShowQuiz() {
 }
 
 const restartBtn = document.querySelector("#restart");
-
 restartBtn.addEventListener("click", function() {
     actualQuestion = 0;
     points = 0;
